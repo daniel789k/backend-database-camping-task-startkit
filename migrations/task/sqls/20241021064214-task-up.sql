@@ -194,7 +194,7 @@ insert into "COURSE" (user_id, skill_id, name, start_at, end_at, max_participant
     '2024-11-25 16:00:00',
     10,
     'https://test-meeting.test.io'
-)
+);
 
 
 -- ████████  █████   █    █████ 
