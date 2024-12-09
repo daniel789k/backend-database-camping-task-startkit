@@ -155,11 +155,11 @@ insert into "COACH_LINK_SKILL" (coach_id , skill_id) values
 
 update "COACH"
 set experience_years  = 3
-where user_id  = (select id from "USER" where(email = 'muscle@hexschooltest.io'))
+where user_id  = (select id from "USER" where(email = 'muscle@hexschooltest.io'));
 
 update "COACH"
 set experience_years  = 5
-where user_id  = (select id from "USER" where(email = 'starplatinum@hexschooltest.io'))
+where user_id  = (select id from "USER" where(email = 'starplatinum@hexschooltest.io'));
 
 -- 3-4 刪除：新增一個專長 空中瑜伽 至 SKILL 資料表，之後刪除此專長。
 
@@ -238,7 +238,7 @@ insert into "COURSE_BOOKING" (user_id, course_id , booking_at , status) values
 
 update "COURSE_BOOKING"
 set cancelled_at = '2024-11-24 17:00:00', status = '課程已取消'
-where user_id = (select id from "USER" where email = 'wXlTq@hexschooltest.io')
+where user_id = (select id from "USER" where email = 'wXlTq@hexschooltest.io');
 
 -- 5-3. 新增：`王小明`再次預約 `李燕容`   的課程，請在`COURSE_BOOKING`新增一筆資料：
     -- 1. 預約人設為`王小明`
@@ -265,14 +265,14 @@ where user_id = (select id from "USER" where email = 'wXlTq@hexschooltest.io')
 update "COURSE_BOOKING"
 set join_at = '2024-11-25 14:01:59', status = '上課中'
 where user_id = (select id from "USER" where email = 'wXlTq@hexschooltest.io')
-and status  = '即將授課'
+and status  = '即將授課';
 
 -- 5-6. 查詢：計算用戶王小明的購買堂數，顯示須包含以下欄位： user_id , total。 (需使用到 SUM 函式與 Group By)
 
 select user_id, sum(purchased_credits) as total
 from "CREDIT_PURCHASE"
 where user_id = (select id from "USER" where email = 'wXlTq@hexschooltest.io')
-group by user_id
+group by user_id;
 
 -- 5-7. 查詢：計算用戶王小明的已使用堂數，顯示須包含以下欄位： user_id , total。 (需使用到 Count 函式與 Group By)
 
